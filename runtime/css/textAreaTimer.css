@@ -1,0 +1,49 @@
+/*add some style, need to scope (using the typeIdentifier as class prefix) every style declaration to prevent collision */
+@import url("base.css");
+
+.qti-customInteraction .textAreaTimer .prompt {
+    position:relative;
+    margin-bottom: 10px;
+}
+
+.tarea {
+    width : 450px;
+    height: 50px;
+    max-width: 100% !important;
+    margin-bottom:10px;
+}
+
+.addTxtarea {
+    color: #fff;
+    background-color: #266d9c !important;
+    text-shadow: 1px 1px 0 #0b4a74 !important;
+    margin-bottom: 10px;
+}
+
+.clock {
+    border-radius: 3px;
+    width: 190px;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px !important;
+    color: #fff;
+    background-color: #adb2b9 ; 
+    text-shadow: 1px 1px 0 #83878e;
+    margin-bottom: 10px;
+ }
+ 
+.timesUp{
+    border-radius: 3px;
+    width: 190px;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px !important;
+    color: #fff;
+    background-color: #adb2b9; 
+    text-shadow: 1px 1px 0 #83878e;
+    margin-bottom: 10px;
+}
+
+input{
+    cursor:pointer;
+}
