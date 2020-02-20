@@ -13,8 +13,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2019 DEPP, Ministère de l'Education Nationale;
- * Developed by Saskia Keskpaik (DEPP), Jean-Philippe Rivière (Wiquid)
+ * Copyright (c) 2020 DEPP, Ministère de l'Education Nationale;
+ * Developed by Saskia Keskpaik (DEPP)
  */
 define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'textAreaTimer/runtime/js/renderer', 'OAT/util/event'], function(qtiCustomInteractionContext, $, renderer, event){
     'use strict';
@@ -51,8 +51,8 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'textAreaTimer/
                 renderer.renderPropositions(_this.id, _this.dom, _this.config);
             });
 
-            this.on('labelchange', function(textfieldlabel){
-                _this.config.textfieldlabel = textfieldlabel;
+            this.on('labelchange', function(textarealabel){
+                _this.config.textarealabel = textarealabel;
                 renderer.renderLabel(_this.id, _this.dom, _this.config);
             });
 

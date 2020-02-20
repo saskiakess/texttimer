@@ -13,8 +13,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2019 DEPP, Ministère de l'Education Nationale;
- * Developed by Saskia Keskpaik (DEPP), Jean-Philippe Rivière (Wiquid)
+ * Copyright (c) 2020 DEPP, Ministère de l'Education Nationale;
+ * Developed by Saskia Keskpaik (DEPP)
  */
 define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     'use strict';
@@ -107,9 +107,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     }
        
 
-    function addTextArea(id, $container, textfieldlabel, propNumber, maxlength) {
+    function addTextArea(id, $container, textarealabel, propNumber, maxlength) {
 
-        $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'><span class='textfieldlabel'>" + textfieldlabel + "</span>&nbspn°" + propNumber + "</div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + maxlength + "'></textarea></div>");
+        $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'><span class='textarealabel'>" + textarealabel + "</span>&nbspn°" + propNumber + "</div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + maxlength + "'></textarea></div>");
     }
 
 
@@ -121,9 +121,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
 
     function renderLabel(id, $container, config){
-        var textfieldlabel  = config.textfieldlabel;
-        $container.find('.textfieldlabel').html(textfieldlabel);
-        return textfieldlabel;
+        var textarealabel  = config.textarealabel;
+        $container.find('.textarealabel').html(textarealabel);
+        return textarealabel;
     }
 
 
@@ -131,7 +131,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
 
         var propNumber = 1;
         var level = parseInt(config.level) || 4;
-        var textfieldlabel  = config.textfieldlabel || "Proposition";
+        var textarealabel  = config.textarealabel || "Proposition";
         
         // Clear the previous congfiguration
         $container.find('.addTxtarea').remove();
@@ -144,7 +144,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
         
         if (level == 1){
             // Only one proposition
-            $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'><span class='textfieldlabel'>" + textfieldlabel + "</span></div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + renderMaxLength(id, $container, config) + "'></textarea></div>");         
+            $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'><span class='textarealabel'>" + textarealabel + "</span></div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + renderMaxLength(id, $container, config) + "'></textarea></div>");         
             // Hide the second clock
             $container.find('.clock:eq( 1 )').remove();
         }
@@ -160,7 +160,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             $container.find('.clock:eq( 1 )').before("<button class='addTxtarea'>Ajouter</button>")
 
             for (let i = 0; i < level; i++) {
-                addTextArea(id, $container, textfieldlabel, propNumber, renderMaxLength(id, $container, config));
+                addTextArea(id, $container, textarealabel, propNumber, renderMaxLength(id, $container, config));
                 propNumber++;
             }
 

@@ -11,9 +11,9 @@
 </div>
 
 <div class="panel">
-    <label for="level">{{__ "Number of text fields"}}</label>
+    <label for="level">{{__ "Number of text areas"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
-    <span class="tooltip-content">{{__ "Number of text fields to display"}}</span>
+    <span class="tooltip-content">{{__ "Number of text areas to display"}}</span>
     <select name="level" class="select2" data-has-search="false">
         {{#each levels}}
         <option value="{{@key}}" {{#if selected}}selected="selected"{{/if}}>{{label}}</option>
@@ -22,10 +22,10 @@
 </div>
 
 <div class="panel">
-    <label for="" class="has-icon">{{__ "Label for text fields"}}</label>
+    <label for="" class="has-icon">{{__ "Label for text areas"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Enter a label'}}</div>
-    <input name="textfieldlabel" type="text" value="{{textfieldlabel}}">
+    <input name="textarealabel" type="text" value="{{textarealabel}}">
 </div>
 
 <div class="panel">

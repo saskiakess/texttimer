@@ -4,7 +4,7 @@
     "short": "TextTimer",
     "description": "Collect propositions in one or more text area(s) with time constraint.",
     "version": "0.0.3",
-    "author": "Saskia Keskpaik, Jean-Philippe Rivière (Wiquid)",
+    "author": "Saskia Keskpaik",
     "email": "saskia.keskpaik@gmail.com",
     "tags": [
         "textarea",

@@ -13,8 +13,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2019 DEPP, Ministère de l'Education Nationale;
- * Developed by Saskia Keskpaik (DEPP), Jean-Philippe Rivière (Wiquid)
+ * Copyright (c) 2020 DEPP, Ministère de l'Education Nationale;
+ * Developed by Saskia Keskpaik (DEPP)
  */
 define([
     'taoQtiItem/qtiCreator/widgets/states/factory',
@@ -61,7 +61,7 @@ define([
             level = parseInt(interaction.prop('level')) || 4,
             levels = [1, 2, 3, 4],
             levelData = {},
-            textfieldlabel = interaction.prop('textfieldlabel') || "Proposition",
+            textarealabel = interaction.prop('textarealabel') || "Proposition",
             timerminutes = parseInt(interaction.prop('timerminutes')) || 0,
             timerseconds = parseInt(interaction.prop('timerseconds')) || 0,
             maxlength = parseInt(interaction.prop('maxlength')) || 525;
@@ -79,7 +79,7 @@ define([
             serial : response.serial,
             identifier : interaction.attr('responseIdentifier'),
             levels : levelData,
-            textfieldlabel : textfieldlabel,
+            textarealabel : textarealabel,
             timerminutes : timerminutes,
             timerseconds : timerseconds,
             maxlength : maxlength
@@ -100,8 +100,8 @@ define([
                 //trigger change event:
                 interaction.triggerPci('levelchange', [parseInt(value)]);
             },
-            textfieldlabel : function textfieldlabel(interaction, value){
-                interaction.prop('textfieldlabel', value);
+            textarealabel : function textarealabel(interaction, value){
+                interaction.prop('textarealabel', value);
                 interaction.triggerPci('labelchange', [value]);
             },
             timerminutes : function (interaction, value) {

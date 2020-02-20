@@ -13,8 +13,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2019 DEPP, Ministère de l'Education Nationale;
- * Developed by Saskia Keskpaik (DEPP), Jean-Philippe Rivière (Wiquid)
+ * Copyright (c) 2020 DEPP, Ministère de l'Education Nationale;
+ * Developed by Saskia Keskpaik (DEPP)
  */
 define([
     'lodash',
@@ -52,7 +52,7 @@ define([
         getDefaultProperties : function(pci){
             return {
                 level : 4,
-                textfieldlabel : "Proposition",
+                textarealabel : "Proposition",
                 timerminutes : 5,
                 timerseconds : 0,
                 maxlength : 525
