@@ -25,7 +25,7 @@
     <label for="" class="has-icon">{{__ "Label for text fields"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Enter a label'}}</div>
-    <input name="textfieldlabel" type="text" value="{{textfieldlabelvalue}}" placeholder="e.g. Proposition">
+    <input name="textfieldlabel" type="text" value="{{textfieldlabel}}">
 </div>
 
 <div class="panel">
