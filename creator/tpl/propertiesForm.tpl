@@ -11,14 +11,21 @@
 </div>
 
 <div class="panel">
-    <label for="level">{{__ "Number of propositions"}}</label>
+    <label for="level">{{__ "Number of text fields"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
-    <span class="tooltip-content">{{__ "Scale size"}}</span>
+    <span class="tooltip-content">{{__ "Number of text fields to display"}}</span>
     <select name="level" class="select2" data-has-search="false">
         {{#each levels}}
         <option value="{{@key}}" {{#if selected}}selected="selected"{{/if}}>{{label}}</option>
         {{/each}}
     </select>
+</div>
+
+<div class="panel">
+    <label for="" class="has-icon">{{__ "Label for text fields"}}</label>
+    <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
+    <div class="tooltip-content">{{__ 'Enter a label'}}</div>
+    <input name="textfieldlabel" type="text" value="{{textfieldlabelvalue}}" placeholder="e.g. Proposition">
 </div>
 
 <div class="panel">

@@ -107,9 +107,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     }
        
 
-    function addTextArea(id, $container, propNumber, maxlength) {
+    function addTextArea(id, $container, textfieldlabel, propNumber, maxlength) {
 
-        $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'>Proposition n°" + propNumber + "</div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + maxlength + "'></textarea></div>");
+        $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'><span class='textfieldlabel'>" + textfieldlabel + "</span>&nbspn°" + propNumber + "</div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + maxlength + "'></textarea></div>");
     }
 
 
@@ -120,10 +120,18 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
     }
 
 
+    function renderLabel(id, $container, config){
+        var textfieldlabel  = config.textfieldlabel;
+        $container.find('.textfieldlabel').html(textfieldlabel);
+        return textfieldlabel;
+    }
+
+
     function renderPropositions(id, $container, config){
 
         var propNumber = 1;
         var level = parseInt(config.level) || 4;
+        var textfieldlabel  = config.textfieldlabel || "Proposition";
         
         // Clear the previous congfiguration
         $container.find('.addTxtarea').remove();
@@ -136,7 +144,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
         
         if (level == 1){
             // Only one proposition
-            $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'>Proposition :" + "</div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + renderMaxLength(id, $container, config) + "'></textarea></div>");         
+            $container.find('.proptxt').append("<div class='prop prop" + propNumber + "'><span class='textfieldlabel'>" + textfieldlabel + "</span></div><div><textarea class='tarea tarea" + propNumber + "' cols='500' rows='5' maxlength='" + renderMaxLength(id, $container, config) + "'></textarea></div>");         
             // Hide the second clock
             $container.find('.clock:eq( 1 )').remove();
         }
@@ -149,15 +157,15 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             } 
 
             // Add propositions
-            $container.find('.clock:eq( 1 )').before("<button class='addTxtarea'>Ajouter une nouvelle proposition</button>")
+            $container.find('.clock:eq( 1 )').before("<button class='addTxtarea'>Ajouter</button>")
 
             for (let i = 0; i < level; i++) {
-                addTextArea(id, $container, propNumber, renderMaxLength(id, $container, config));
+                addTextArea(id, $container, textfieldlabel, propNumber, renderMaxLength(id, $container, config));
                 propNumber++;
             }
 
             $container.find('.addTxtarea').on('click', function () {
-                addTextArea(id, $container, propNumber, renderMaxLength(id, $container, config));
+                addTextArea(id, $container, renderLabel(id, $container, config), propNumber, renderMaxLength(id, $container, config));
                 propNumber++;
            })
         }
@@ -217,6 +225,7 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
             renderItem(id, $container, config);
             renderTimerValue(id, $container, config);
             renderPropositions(id, $container, config);
+            renderLabel(id, $container, config);
             
             //render rich text content in prompt
             html.render($container.find('.prompt'));
@@ -229,6 +238,9 @@ define(['IMSGlobal/jquery_2_1_1', 'OAT/util/html'], function($, html){
         },
         renderPropositions : function(id, container, config){
             renderPropositions(id, $(container), config);
+        },
+        renderLabel : function(id, container, config){
+            renderLabel(id, $(container), config);
         } 
     };
 });

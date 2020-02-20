@@ -46,6 +46,16 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'textAreaTimer/
             qtiCustomInteractionContext.notifyReady(this);
 
             //listening to dynamic configuration change
+            this.on('levelchange', function(level){
+                _this.config.level = level;
+                renderer.renderPropositions(_this.id, _this.dom, _this.config);
+            });
+
+            this.on('labelchange', function(textfieldlabel){
+                _this.config.textfieldlabel = textfieldlabel;
+                renderer.renderLabel(_this.id, _this.dom, _this.config);
+            });
+
             this.on('timerminuteschange', function(timerminutes){
                 _this.config.timerminutes = timerminutes;
                 renderer.renderTimerValue(_this.id, _this.dom, _this.config);
@@ -59,12 +69,7 @@ define(['qtiCustomInteractionContext', 'IMSGlobal/jquery_2_1_1', 'textAreaTimer/
             this.on('maxlengthchange', function(maxlength){
                 _this.config.maxlength = maxlength;
                 renderer.renderMaxLength(_this.id, _this.dom, _this.config);
-            });
-
-            this.on('levelchange', function(level){
-                _this.config.level = level;
-                renderer.renderPropositions(_this.id, _this.dom, _this.config);
-            });
+            });   
 
         },
         /**

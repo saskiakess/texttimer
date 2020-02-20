@@ -58,12 +58,13 @@ define([
             $form = _widget.$form,
             interaction = _widget.element,
             response = interaction.getResponseDeclaration(),
-            timerminutes = parseInt(interaction.prop('timerminutes')) || 0,
-            timerseconds = parseInt(interaction.prop('timerseconds')) || 0,
-            maxlength = parseInt(interaction.prop('maxlength')) || 525,
             level = parseInt(interaction.prop('level')) || 4,
             levels = [1, 2, 3, 4],
-            levelData = {};
+            levelData = {},
+            textfieldlabel = interaction.prop('textfieldlabel') || "Proposition",
+            timerminutes = parseInt(interaction.prop('timerminutes')) || 0,
+            timerseconds = parseInt(interaction.prop('timerseconds')) || 0,
+            maxlength = parseInt(interaction.prop('maxlength')) || 525;
         
         //build select option data for the template
         _.each(levels, function(lvl){
@@ -77,10 +78,11 @@ define([
         $form.html(formTpl({
             serial : response.serial,
             identifier : interaction.attr('responseIdentifier'),
+            levels : levelData,
+            textfieldlabel : textfieldlabel,
             timerminutes : timerminutes,
             timerseconds : timerseconds,
-            maxlength : maxlength,
-            levels : levelData
+            maxlength : maxlength
         }));
 
         //init form javascript
@@ -92,10 +94,18 @@ define([
                 response.id(value);
                 interaction.attr('responseIdentifier', value);
             },
-            timerminutes : function (interaction, value) {
+            level : function level(interaction, value){
                 //update the pci property value:
-                interaction.prop('timerminutes', value);
+                interaction.prop('level', value);
                 //trigger change event:
+                interaction.triggerPci('levelchange', [parseInt(value)]);
+            },
+            textfieldlabel : function textfieldlabel(interaction, value){
+                interaction.prop('textfieldlabel', value);
+                interaction.triggerPci('labelchange', [value]);
+            },
+            timerminutes : function (interaction, value) {
+                interaction.prop('timerminutes', value);
                 interaction.triggerPci('timerminuteschange', [parseInt(value)]);
             },
             timerseconds : function (interaction, value) {
@@ -105,10 +115,6 @@ define([
             maxlength : function (interaction, value) {
                 interaction.prop('maxlength', value);
                 interaction.triggerPci('maxlengthchange', [parseInt(value)]);
-            },
-            level : function level(interaction, value){
-                interaction.prop('level', value);
-                interaction.triggerPci('levelchange', [parseInt(value)]);
             }
         });
 

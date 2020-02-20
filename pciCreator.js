@@ -51,10 +51,11 @@ define([
          */
         getDefaultProperties : function(pci){
             return {
+                level : 4,
+                textfieldlabel : "Proposition",
                 timerminutes : 5,
                 timerseconds : 0,
-                maxlength : 525,
-                level : 4
+                maxlength : 525
             };
         },
         /**
